@@ -2,6 +2,7 @@ package com.rs.gifdemo.repository;
 
 import com.rs.gifdemo.model.Category;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,5 +18,15 @@ public class CategoryRepository {
 
     public List<Category> getAllCategories() {
         return ALL_CATEGORIES;
+    }
+
+    public Category getCategoryById(int id) {
+
+        for (Category cat : ALL_CATEGORIES) {
+            if (cat.getId() == id) {
+                return cat;
+            }
+        }
+        return null;
     }
 }
